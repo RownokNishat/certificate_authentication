@@ -1,0 +1,28 @@
+Account 1 ::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Add: 0xC1BfA82A3F78535dE497f9690a3F705c2f4f7eAf
+Pass : ******
+
+
+Account 2 ::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Add : 0xB8e0ff74D3AC806192Dd2E1365D49AA58A021eC5
+Pass : ********
+
+
+Bootnode Enode :::::::::::::::::::::::::::::::::::::::::::::::::
+enode://173adb934b909237fb907da1f7016e814f69ae0afbde50cc0b1c1274111a24c82b08b551f93666e84730a2de67217038d98a774047392dc65181bbe11e4ff25c@127.0.0.1:0?discport=30301
+
+
+bootnode launch ::::::::::::::::::::::::::::::::::::::::::::::::
+bootnode -nodekey "./boot.key" -verbosity 7 -addr "127.0.0.1:30301"
+
+
+node 1 launch ::::::::::::::::::::::::::::::::::::::::::::::::::
+geth --networkid 14333 --datadir "./data" --bootnodes enode://173adb934b909237fb907da1f7016e814f69ae0afbde50cc0b1c1274111a24c82b08b551f93666e84730a2de67217038d98a774047392dc65181bbe11e4ff25c@127.0.0.1:0?discport=30301 --port 30303 --ipcdisable --syncmode full --http --allow-insecure-unlock --http.corsdomain "*" --http.port 8545 --unlock 0xC1BfA82A3F78535dE497f9690a3F705c2f4f7eAf --password password.txt --mine console
+
+
+node 2 launch ::::::::::::::::::::::::::::::::::::::::::::::::::
+geth --networkid 14333 --datadir "./data" --bootnodes enode://173adb934b909237fb907da1f7016e814f69ae0afbde50cc0b1c1274111a24c82b08b551f93666e84730a2de67217038d98a774047392dc65181bbe11e4ff25c@127.0.0.1:0?discport=30301 --port 30304 --ipcdisable --syncmode full --http --allow-insecure-unlock --http.corsdomain "*" --http.port 8546 --unlock 0xB8e0ff74D3AC806192Dd2E1365D49AA58A021eC5 --password password.txt console
+
+
+
+
